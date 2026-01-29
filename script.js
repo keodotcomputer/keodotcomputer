@@ -67,7 +67,7 @@
         // fallback: save locally and show success message so the UX isn't broken.
         try {
           const stored = JSON.parse(
-            localStorage.getItem("newsletter-signups") || "[]"
+            localStorage.getItem("newsletter-signups") || "[]",
           );
           stored.push({ email: email, when: new Date().toISOString() });
           localStorage.setItem("newsletter-signups", JSON.stringify(stored));
@@ -108,7 +108,7 @@
       document.documentElement.style.setProperty("--star-opacity", opacity);
       document.documentElement.style.setProperty(
         "--star-duration",
-        duration + "s"
+        duration + "s",
       );
     }
 
@@ -116,8 +116,12 @@
     updateStar();
 
     // Update every 2-4 seconds
-    setInterval(() => {
-      updateStar();
-    }, 2000 + Math.random() * 2000);
-  })()
+    setInterval(
+      () => {
+        updateStar();
+      },
+      2000 + Math.random() * 2000,
+    );
+  })(),
 );
+// Clean up scriptjs
